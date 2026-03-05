@@ -1,0 +1,128 @@
+:root{
+
+    --primary: #9d563f;
+    --on-primary: hsl(0, 0%, 100%);
+
+    --primary-container: hsl(14, 70%, 81%);
+    --on-primary-container: hsl(15, 55%, 29%);
+
+    --secundary:hsl(65, 75%, 61%);
+    --on-secundary: hsl(0, 0%, 0%);
+
+    --secundary-container: hsl(65, 66%, 75%);
+
+    --terciary:#053961;
+    --on-terciary: hsl(0, 0%, 100%);
+
+--secondary-container: rgb(226 233 147);
+  --on-secondary-container: rgb(69 74 3);
+
+  --tertiary-container: rgb(209 228 255);
+  --on-tertiary-container: rgb(24 73 117);
+
+    --bg-dark: hsl(from var(--secundary) h s 51%);
+    --bg: var(--secundary);
+    --bg-light: hsl(from var(--secundary) h s 71%);
+
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    background: var(--primary);
+    font-family: sans-serif;
+    color: var(--on-primary);
+    font-size: 1.2rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+header{
+    
+    width: 100%;
+    
+    background: gray;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo{
+        width: 50px;
+    }
+    ol{
+        list-style: none;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    a{
+
+    }
+
+    }
+}
+a{
+    text-decoration: none;
+    color: var(--terciary);
+}
+h1, h2,h3,h4,h5{
+    color: var(--terciary);
+    line-height: 1;
+}
+
+
+.primary-container{
+    background: var(--primary-container);
+    color: var(--on-primary-container);
+    
+}
+.secundary-container{
+    background: var(--secundary-container);
+    color: var(--on-secundary-container);
+    
+}
+.tertiary-container{
+    background: var(--terciary-container);
+    color: var(--on-terciary-container);
+    
+}
+.secundary{
+    background: var(--secundary);
+    color: var(--on-secundary);
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 50vh;
+    place-content: center;
+    gap: 1em;
+    padding: 1em;
+
+    .main{
+        width: 90%;
+        justify-self: center;
+        border-radius: 18px;
+    }
+
+}
+.grid-der{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 50vh;
+    place-content: center;
+    gap: 1em;
+    padding: 1em;
+
+    .main{
+        width: 90%;
+        justify-self: center;
+        border-radius: 18px;
+    }
+
+}

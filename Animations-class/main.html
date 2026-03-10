@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase sobre animaciones y transiciones</title>
+    <style>
+        body {
+            background-color: hsl(0, 20%, 80%);
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: all 1s linear;
+            animation: scaleIn 0.5s ease-in-out 2 alternate;
+
+            &:hover {
+                scale: 1.5;
+                transition-duration: 0.5s;
+            }
+
+        }
+
+        @keyframes scaleIn {
+            from {
+                scale: 1;
+            }
+
+            to {
+                scale: 1.5;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <h1>Clase sobre animaciones y transiciones</h1>
+        <p>Esta es una clase sobre animaciones y transiciones.</p>
+        <div class="box">
+
+        </div>
+        <section class="container" id="transitions">
+            <h3>Transiciones</h3>
+            <p>Las transiciones son animaciones que se ejecutan cuando cambia una propiedad.</p>
+            <p>Y tienen las siguientes propiedades:</p>
+            <ul>
+                <li>transition-property: propiedad que se animará</li>
+                <li>transition-duration: duración de la animación</li>
+                <li>transition-timing-function: función de temporización</li>
+                <li>transition-delay: retraso antes de iniciar la animación</li>
+            </ul>
+
+        </section>
+        <section class="container">
+            <h3>Animaciones</h3>
+            <p>Las animaciones son secuencias de keyframes que se ejecutan automáticamente.</p>
+            <p>Y tienen las siguientes propiedades:</p>
+            <ul>
+                <li>animation-name: nombre de la animación</li>
+                <li>animation-duration: duración de la animación</li>
+                <li>animation-timing-function: función de temporización</li>
+                <li>animation-delay: retraso antes de iniciar la animación</li>
+                <li>animation-iteration-count: número de iteraciones</li>
+                <li>animation-direction: dirección de la animación</li>
+                <li>animation-fill-mode: define cómo se aplican los estilos de la animación antes de que comience y
+                    después de que termine.</li>
+                <li>animation-play-state: estado de reproducción</li>
+            </ul>
+            <strong>Proyectos</strong>
+            <ul>
+                <li>Proyecto sobre animaciones de elementos mas utilizadas.</li>
+            </ul>
+
+        </section>
+        <button class="cambiar">Cambiar clase</button>
+        <script>
+            const button = document.querySelector(".cambiar")
+            button.addEventListener("click", e => {
+
+                document.querySelector(".box").style.animationPlayState = "running";
+            })
+        </script>
+    </main>
+</body>
+
+</html>

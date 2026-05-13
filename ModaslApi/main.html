@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase Modals API</title>
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <main>
+      <dialog id="dialog">
+        <button id="close" type="button">Close</button>
+        <form method="dialog" id="form">
+          <p>
+            <label for="fav-animal">Favorite animal:</label>
+            <select id="fav-animal" name="favAnimal" required>
+              <option></option>
+              <option>Brine shrimp</option>
+              <option>Red panda</option>
+              <option>Spider monkey</option>
+            </select>
+          </p>
+          <div>
+            <button id="submit" type="submit">Confirm</button>
+          </div>
+        </form>
+      </dialog>
+
+      <button id="open">Open dialog</button>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+/*
+  Estilos para el efecto 3D "tilt":
+  - El contenedor (.tilt) aporta perspectiva.
+  - El "card" (.tilt__card) es el elemento que se rota con JS.
+  - La imagen se empuja hacia delante con translateZ para dar sensación de profundidad.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  /* Usamos el alto completo para poder centrar el contenido verticalmente */
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  /* Centrado simple en pantalla */
+  display: grid;
+  place-items: center;
+  background: #0b0d12;
+}
+
+.tilt {
+  /* "Cámara": define cuánto "profundo" se ve el 3D (menor = más intenso) */
+  perspective: 900px;
+}
+
+.tilt__card {
+  /* Permite que los hijos con translateZ mantengan el 3D */
+  transform-style: preserve-3d;
+  /* Cuando el cursor sale, el reset vuelve suave gracias a esta transición */
+  transition: transform 180ms ease;
+  will-change: transform;
+}
+
+.tilt__img {
+  display: block;
+  width: min(520px, 92vw);
+  height: auto;
+  border-radius: 18px;
+  /* Sombra para reforzar la sensación de volumen */
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.35);
+  /* Se acerca la imagen "hacia la cámara" para que el giro se note más */
+  transform: translateZ(35px);
+}
+
+.tilt.is-active .tilt__card {
+  /* Mientras mueves el cursor, desactivamos transición para una respuesta inmediata */
+  transition: transform 0ms;
+}

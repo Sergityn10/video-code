@@ -1,0 +1,1 @@
+Postgre SQL con Prisma y subiendolo en un docker

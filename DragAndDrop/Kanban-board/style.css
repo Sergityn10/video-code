@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --sourface-dark: hsl(0, 0%, 11%);
+  --sourface: hsl(0, 1%, 13%);
+  --sourface-light: hsla(0, 0%, 20%, 0.363);
+
+  /* Niveles de contenedor siguiendo la escala M3 (más claro → más oscuro) */
+  --container-surface-lowest: hsl(0, 4%, 63%);
+  --container-surface-low: hsl(0, 1%, 40%);
+  --container-surface: var(--sourface);
+  --container-surface-high: color-mix(in hsl, var(--sourface) 72%, black);
+  --container-surface-highest: color-mix(in hsl, var(--sourface) 88%, black);
+
+  --border-card: 1px solid hsl(0, 0%, 30%);
+  --on-container: white;
+  --on-container-muted: hsl(0, 0%, 70%);
+
+  --danger-bg: hsla(0, 87%, 45%, 0.08);
+  --on-danger: hsl(0, 87%, 45%);
+}
+body {
+  height: 100vh;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  background: hsl(0, 0%, 20%);
+  color: white;
+}
+main {
+  height: 100%;
+  padding: 32px;
+}
+.columns-list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 16px;
+  h3 {
+    text-align: center;
+    text-wrap: wrap;
+  }
+  .column {
+    flex: 1;
+    flex-shrink: 0;
+    width: 100%;
+    transition: background 0.3s ease;
+    padding: 4px;
+    border-radius: 4px;
+    .task-list {
+      margin-top: 16px;
+      width: 100%;
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
+
+      .task {
+        background: hsl(0, 0%, 40%);
+        padding: 4px 8px;
+        border-radius: 4px;
+        flex: 1;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .task.dragging {
+        opacity: 0.5;
+      }
+      .task:hover {
+        overflow: auto;
+      }
+    }
+    .preview {
+      border-radius: 4px;
+      background: hsl(0, 0%, 13%);
+      height: 100px;
+    }
+    .container-form {
+      margin-top: 8px;
+      width: 100%;
+      textarea {
+        background: hsl(0, 0%, 10%);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        resize: vertical;
+        width: 100%;
+        max-height: 200px;
+        padding: 4px 8px;
+        font-family: inherit;
+      }
+      .footer-form {
+        display: flex;
+        gap: 4px;
+      }
+    }
+  }
+  .column.dragover {
+    background: hsl(0, 0%, 25%);
+  }
+}
+.primary {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-card);
+  cursor: pointer;
+  background: var(--container-surface);
+  color: var(--on-container);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.primary::before {
+  content: "+";
+  font-size: 16px;
+  line-height: 1;
+}
+.primary:hover {
+  background: var(--sourface-light);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+.primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+.danger {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid hsl(0, 87%, 45%);
+  background: hsla(0, 87%, 45%, 0.08);
+  color: hsl(0, 87%, 45%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.danger::before {
+  content: "🗑";
+  font-size: 14px;
+}
+
+.danger:hover {
+  background: hsl(0, 87%, 45%);
+  color: #fff;
+  border-color: hsl(0, 87%, 40%);
+  transform: translateY(-1px);
+}
+
+.danger:active {
+  transform: translateY(0);
+  background: hsl(0, 87%, 38%);
+}
+
+.danger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+.column.deleting-column {
+  place-content: center;
+}
+.deletion-container {
+  width: 100%;
+  height: 200px;
+  background: hsl(0, 0%, 40%);
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::after {
+    content: "🗑";
+    font-size: 50px;
+  }
+}
+.deletion-container.dragover {
+  background: hsla(0, 70%, 50%, 0.5);
+
+  &::after {
+    animation: sliding 0.4s ease infinite alternate;
+  }
+}
+@keyframes sliding {
+  0% {
+    translate: 0 0;
+  }
+  100% {
+    translate: 0 10px;
+  }
+}

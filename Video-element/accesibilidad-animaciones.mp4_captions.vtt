@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.201 --> 00:00:25.500
+No intentes esto si lo que quieres es mejorar la accesibilidad web de tus páginas únicamente con una media query en CSS. Imaginaos que tenemos esta página que tenemos un párrafo que va de izquierda a derecha todo el rato y además un botón que hacer. Hover aumenta su tamaño, pues para ello únicamente con utilizar la media query de user preference Motion en Radius vamos a poder realizar.
+
+2
+00:00:25.801 --> 00:00:55.800
+Esta magia, pero para ello antes debemos de configurar nuestro dispositivo, vamos a configuración en nuestro sistema operativo, vamos a sección de accesibilidad y va a haber un apartado de defectos visuales. Le damos ahí y dentro de la parte de efectos visuales va a haber una de reducción de animación y normalmente va a estar activada. Si lo desactivamos y volvemos a nuestra página, configuramos nuestro CSS. Vamos a ver que ya nuestra página va a responder.
+
+3
+00:00:56.201 --> 00:01:22.600
+Según la configuración de nuestro sistema, ya tenemos y vemos que en nuestra página, según la configuración que hemos dado, que la animación de izquierda a derecha de párrafo sea menos brusca y que además el joven esa transición no haya no exista. Y ya con esto podemos tener páginas totalmente accesibles y únicamente con la query en CS si te ha gustado.
+
+4
+00:01:23.001 --> 00:01:25.800
+Dale a like y suscríbete para más contenido de este.

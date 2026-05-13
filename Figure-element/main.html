@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Figure element</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: grid;
+        place-content: center;
+      }
+      img {
+        height: auto;
+        pointer-events: none;
+        object-fit: cover;
+        object-position: top;
+      }
+      figure {
+        border: thin #c0c0c0 solid;
+        display: flex;
+        flex-flow: column;
+        padding: 5px;
+        max-width: 220px;
+        margin: auto;
+      }
+
+      img {
+        max-width: 220px;
+        max-height: 150px;
+      }
+
+      figcaption {
+        background-color: #222;
+        color: #fff;
+        font: italic smaller sans-serif;
+        padding: 3px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <figure>
+      <img
+        src="https://images.justwatch.com/poster/319839022/s718/temporada-2.jpg"
+        alt=""
+      />
+      <figcaption>
+        Cartel de la temporadad 2 de "the daily life of the immortal king"
+      </figcaption>
+    </figure>
+  </body>
+</html>

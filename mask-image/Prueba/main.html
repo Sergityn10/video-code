@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mask image</title>
+    <style>
+      body {
+        background: #09f;
+        display: grid;
+        place-content: center;
+      }
+      img {
+        width: 150px;
+        mask-size: 100% 100%;
+        object-fit: cover;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+      }
+      img:first-child {
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+      }
+      img:nth-child(2) {
+        mask-image: radial-gradient(black 60%, transparent 70%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="./foto-orla-sin-fondo.png" alt="Foto de la graduacion" />
+      <img src="./foto-orla-sin-fondo.png" alt="Foto de la graduacion" />
+      <img src="./foto-orla-sin-fondo.png" alt="Foto de la graduacion" />
+    </main>
+  </body>
+</html>

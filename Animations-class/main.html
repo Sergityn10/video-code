@@ -1,91 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clase sobre animaciones y transiciones</title>
     <style>
-        body {
-            background-color: hsl(0, 20%, 80%);
+      body {
+        background-color: hsl(0, 20%, 80%);
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        transition: all 1s linear;
+        animation: scaleIn 0.5s ease-in-out 2 alternate;
+        &:hover {
+          scale: 1.5;
+          transition-duration: 0.5s;
+        }
+      }
+      .discrete-animation {
+        opacity: 1;
+        display: block;
+        transition:
+          opacity 0.5s,
+          display 0.5s;
+        transition-behavior: allow-discrete;
+        &.hidden {
+          opacity: 0;
+          display: none;
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          scale: 1;
         }
 
-        .box {
-            width: 100px;
-            height: 100px;
-            background-color: red;
-            transition: all 1s linear;
-            animation: scaleIn 0.5s ease-in-out 2 alternate;
-
-            &:hover {
-                scale: 1.5;
-                transition-duration: 0.5s;
-            }
-
+        to {
+          scale: 1.5;
         }
-
-        @keyframes scaleIn {
-            from {
-                scale: 1;
-            }
-
-            to {
-                scale: 1.5;
-            }
-        }
+      }
     </style>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <main>
-        <h1>Clase sobre animaciones y transiciones</h1>
-        <p>Esta es una clase sobre animaciones y transiciones.</p>
-        <div class="box">
-
+      <h1>Clase sobre animaciones y transiciones</h1>
+      <p>Esta es una clase sobre animaciones y transiciones.</p>
+      <div class="box"></div>
+      <section class="container" id="transitions">
+        <h3>Transiciones</h3>
+        <p>
+          Las transiciones son animaciones que se ejecutan cuando cambia una
+          propiedad.
+        </p>
+        <p>Y tienen las siguientes propiedades:</p>
+        <ul>
+          <li>transition-property: propiedad que se animará</li>
+          <li>transition-duration: duración de la animación</li>
+          <li>transition-timing-function: función de temporización</li>
+          <li>transition-delay: retraso antes de iniciar la animación</li>
+          <li>
+            transition-behavior: permite animar propiedades discretas como
+            display o visibility
+          </li>
+        </ul>
+        <p>Se suelen utilizar en diferentes eventos como los siguientes:</p>
+        <ol>
+          <li>Hover</li>
+          <li>Active</li>
+          <li>Focus</li>
+        </ol>
+      </section>
+      <section class="container" id="discrete-transitions">
+        <h3>Transiciones Discretas</h3>
+        <p>
+          Las transiciones discretas permiten animar propiedades que normalmente
+          no son animables, como <code>display</code> o <code>visibility</code>.
+        </p>
+        <p>
+          Para habilitarlas, se utiliza la propiedad
+          <code>transition-behavior: allow-discrete</code>.
+        </p>
+        <div class="discrete-animation">
+          Este elemento puede animarse incluso al cambiar display
         </div>
-        <section class="container" id="transitions">
-            <h3>Transiciones</h3>
-            <p>Las transiciones son animaciones que se ejecutan cuando cambia una propiedad.</p>
-            <p>Y tienen las siguientes propiedades:</p>
-            <ul>
-                <li>transition-property: propiedad que se animará</li>
-                <li>transition-duration: duración de la animación</li>
-                <li>transition-timing-function: función de temporización</li>
-                <li>transition-delay: retraso antes de iniciar la animación</li>
-            </ul>
+        <button
+          onclick="
+            document
+              .querySelector('.discrete-animation')
+              .classList.toggle('hidden')
+          "
+        >
+          Toggle visibilidad
+        </button>
+      </section>
 
-        </section>
-        <section class="container">
-            <h3>Animaciones</h3>
-            <p>Las animaciones son secuencias de keyframes que se ejecutan automáticamente.</p>
-            <p>Y tienen las siguientes propiedades:</p>
-            <ul>
-                <li>animation-name: nombre de la animación</li>
-                <li>animation-duration: duración de la animación</li>
-                <li>animation-timing-function: función de temporización</li>
-                <li>animation-delay: retraso antes de iniciar la animación</li>
-                <li>animation-iteration-count: número de iteraciones</li>
-                <li>animation-direction: dirección de la animación</li>
-                <li>animation-fill-mode: define cómo se aplican los estilos de la animación antes de que comience y
-                    después de que termine.</li>
-                <li>animation-play-state: estado de reproducción</li>
-            </ul>
-            <strong>Proyectos</strong>
-            <ul>
-                <li>Proyecto sobre animaciones de elementos mas utilizadas.</li>
-            </ul>
-
-        </section>
-        <button class="cambiar">Cambiar clase</button>
-        <script>
-            const button = document.querySelector(".cambiar")
-            button.addEventListener("click", e => {
-
-                document.querySelector(".box").style.animationPlayState = "running";
-            })
-        </script>
+      <section class="container">
+        <h3>Animaciones</h3>
+        <p>
+          Las animaciones son secuencias de keyframes que se ejecutan
+          automáticamente.
+        </p>
+        <p>Y tienen las siguientes propiedades:</p>
+        <ul>
+          <li>animation-name: nombre de la animación</li>
+          <li>animation-duration: duración de la animación</li>
+          <li>animation-timing-function: función de temporización</li>
+          <li>animation-delay: retraso antes de iniciar la animación</li>
+          <li>animation-iteration-count: número de iteraciones</li>
+          <li>animation-direction: dirección de la animación</li>
+          <li>
+            animation-fill-mode: define cómo se aplican los estilos de la
+            animación antes de que comience y después de que termine.
+          </li>
+          <li>animation-play-state: estado de reproducción</li>
+        </ul>
+        <strong>Proyectos</strong>
+        <ul>
+          <li>Proyecto sobre animaciones de elementos mas utilizadas.</li>
+        </ul>
+      </section>
+      <button class="cambiar">Cambiar clase</button>
+      <script>
+        const button = document.querySelector(".cambiar");
+        button.addEventListener("click", (e) => {
+          document.querySelector(".box").style.animationPlayState = "running";
+        });
+      </script>
     </main>
-</body>
-
+  </body>
 </html>

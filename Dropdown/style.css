@@ -1,0 +1,29 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px;
+  min-width: 180px;
+  border-radius: 8px;
+
+  /* ESTADO INICIAL PARA ANIMAR */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px); /* Empieza 10px más abajo */
+  transition: all 0.3s ease; /* La magia sucede aquí */
+}
+
+/* Cuando el menú tiene la clase .show */
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* Sube a su posición original */
+}

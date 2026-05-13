@@ -5,18 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Video elemento</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      video {
+        aspect-ratio: 9/16;
+      }
+      body {
+        display: grid;
+        place-content: center;
+      }
+    </style>
   </head>
   <body>
     <video
       controls
-      controlsList="nodownload"
+      controlsList="nodownload noremoteplayback nofullscreen"
       crossorigin="anonymous"
       loop
       poster="image.png"
       playsinline
     >
-      <source src="video.mkv" type="video/webm" />
+      <source src="accesibilidad-animaciones.mp4" type="video/webm" />
       <track default kind="captions" src="captions.vtt" />
+      <track
+        default
+        kind="captions"
+        src="accesibilidad-animaciones.mp4_captions.vtt"
+      />
     </video>
   </body>
 </html>

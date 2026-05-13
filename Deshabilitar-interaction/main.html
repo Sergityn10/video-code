@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desactivar interaction user</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: grid;
+        place-content: center;
+      }
+      img {
+        height: 200px;
+        object-fit: cover;
+      }
+      img:first-child {
+        pointer-events: none;
+      }
+      video {
+        width: 200px;
+        aspect-ratio: 9/16;
+        user-select: none;
+      }
+      .disabled {
+        /* pointer-events: none; */
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img
+        src="https://images.justwatch.com/poster/319839022/s718/temporada-2.jpg"
+        alt=""
+      />
+      <img
+        src="https://m.media-amazon.com/images/M/MV5BYTU2NGRmNTQtYTcyZi00OTNlLTgxMzEtZjRiZjUyNGRhYTM5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        alt=""
+      />
+      <p class="disabled">Este parrarfo no se puede seleccionar</p>
+      <p>Este parrarfo si se puede seleccionar</p>
+    </main>
+  </body>
+</html>

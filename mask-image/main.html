@@ -1,56 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=viewport-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=viewport-width, initial-scale=1.0" />
     <title>Explicacion de mask-image</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <style>
-        * {
-            margin: 0;
-            box-sizing: border-box;
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
 
+      .container {
+        background-color: hsl(0, 0%, 10%);
+        padding: 8px;
+        border-radius: 8px;
+        color: white;
+
+        h1 {
+          line-height: 1;
+          margin-bottom: 8px;
         }
+      }
 
-        .container {
-            background-color: hsl(0, 0%, 10%);
-            padding: 8px;
-            border-radius: 8px;
-            color: white;
-
-            h1 {
-                line-height: 1;
-                margin-bottom: 8px;
-            }
+      img {
+        mask-image: url("#mask");
+        mask-size: cover;
+        mask-repeat: no-repeat;
+        width: 200px;
+        height: 200px;
+      }
+      div#mask-container {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(125deg, #000, #fff);
+        mask-image: url("mask.svg");
+        mask-repeat: no-repeat;
+        &:hover {
+          background: blue;
         }
-
-        img {
-            mask-image: url('#mask');
-            mask-size: cover;
-            mask-repeat: no-repeat;
-            width: 200px;
-            height: 200px;
-
-        }
+      }
+      #image2 {
+        mask-image: linear-gradient(to bottom, #000 0% 80%, transparent 100%);
+        mask-size: cover;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h1>Mask Image Example</h1>
-        <p>This text will be masked by the image.</p>
+      <h1>Mask Image Example</h1>
+      <p>This text will be masked by the image.</p>
     </div>
     <svg width="0" height="0" viewBox="0 0 400 300">
-        <defs>
-            <mask id="mask">
-                <rect fill="#000000" x="0" y="0" width="400" height="300"></rect>
-                <circle fill="#FFFFFF" cx="150" cy="150" r="100" />
-                <circle fill="#FFFFFF" cx="50" cy="50" r="150" />
-            </mask>
-        </defs>
+      <defs>
+        <mask id="mask">
+          <rect fill="#000000" x="0" y="0" width="400" height="300"></rect>
+          <circle fill="#FFFFFF" cx="150" cy="150" r="100" />
+          <circle fill="#FFFFFF" cx="50" cy="50" r="150" />
+        </mask>
+      </defs>
     </svg>
-    <img src="./../Video-element/image.png" alt="">
-</body>
-
+    <img id="image2" src="./../Video-element/image.png" alt="" />
+    <img src="./../Video-element/image.png" alt="" />
+    <div alt="" id="mask-container"></div>
+  </body>
 </html>

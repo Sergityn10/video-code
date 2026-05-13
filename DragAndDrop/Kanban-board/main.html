@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban board</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="columns-list">
+        <section class="column deleting-column">
+          <div class="deletion-container"></div>
+        </section>
+      </div>
+    </main>
+    <template id="template-column">
+      <div class="column">
+        <h3 class="title"></h3>
+        <div class="task-list"></div>
+      </div>
+    </template>
+    <template id="template-card">
+      <div draggable="true" class="task">
+        <p class="title"></p>
+      </div>
+    </template>
+    <template id="container-add-task-form-column">
+      <div class="container-form">
+        <form action="" id="form-add-task-column" class="form-add-task-column">
+          <textarea
+            name="input-new-task"
+            id="title-new-task"
+            placeholder="Add a new task"
+          ></textarea>
+          <div class="footer-form">
+            <button type="submit" class="primary">Agregar</button>
+            <button type="button" class="danger">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popover draggable</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <button  id="openPopover" class="btn" type="button">Abrir popover</button>
+
+      <section
+        id="popover"
+        class="popover is-hidden"
+        role="dialog"
+        aria-labelledby="popoverTitle"
+      >
+        <header
+          id="popoverHeader"
+          class="popover__header"
+          aria-label="Arrastrar popover"
+          tabindex="0"
+        >
+          <h2 class="popover__title" id="popoverTitle">Popover</h2>
+          <button
+            id="closePopover"
+            class="btn btn--ghost"
+            type="button"
+            aria-label="Cerrar"
+          >
+            ✕
+          </button>
+        </header>
+
+        <div class="popover__content">
+          <p>Arrástrame desde la barra superior.</p>
+          <p>Este popover se puede mover por la página.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

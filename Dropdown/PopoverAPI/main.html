@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropdown con popover API</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="dropdown">
+        <button popovertarget="mi-menu" class="dropdown-toggle">
+          Abrir Popover <span>▼</span>
+        </button>
+
+        <ul id="mi-menu" popover class="dropdown-menu">
+          <li><a href="#">Configuración</a></li>
+          <li><a href="#">Perfil</a></li>
+          <li><hr /></li>
+          <li><a href="#">Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
